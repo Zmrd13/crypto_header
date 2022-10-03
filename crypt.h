@@ -20,7 +20,7 @@ using namespace std;
 template<typename T>
 void nlPrint(T data) {
 
-    cout << endl << data;
+    cout << endl << data << endl;
 
 
 };
@@ -30,6 +30,7 @@ void nlPrint(const vector<lli> &data) {
     for (auto &i: (vector<lli>) data) {
         cout << i << " ";
     }
+    cout << endl;
 }
 
 /**
@@ -90,6 +91,7 @@ vector<lli> extGCD(lli iA, lli iB) {
     }
     return vecU;
 }
+
 /**
  *
  * Проверка на просту
