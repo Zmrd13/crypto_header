@@ -3,46 +3,6 @@
 
 using namespace std;
 
-lli random(lli min, lli max) {
-    return rand() % (max - min) + min;
-}
-
-lli BCStep(lli iA, lli iP, lli iY) {
-    lli iM = sqrt(iP) + 1, iK = iM;
-    vector<lli> vecCalc = {};
-    vector<lli> vecAns;
-
-    lli iNumber = 0;
-    lli iIndex = 0;
-
-    for (lli i = 0; i <= iM - 1; i++) {
-        vecCalc.push_back((modPow(iA, i, iP) * (iY % iP)) % iP);
-    }
-    cout << endl;
-
-    for (lli i = 1; i <= iK; i++) {
-        iNumber = modPow(iA, i * iM, iP);
-        for (lli j = 0; j < vecCalc.size(); j++) {
-            if (iNumber == vecCalc[j]) {
-                iIndex++;
-                vecAns.push_back(i * iM - j);
-            }
-        }
-    }
-    cout << endl << "vecAns:" << endl;
-
-
-    for (int i = 0; i < vecAns.size(); i++) {
-        if (modPow(iA, vecAns[i], iP) == iY) {
-            cout << "(+)";
-        }
-        cout << vecAns[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
-
 
 int main() {
     nlPrint("modPow");
