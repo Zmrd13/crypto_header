@@ -16,13 +16,13 @@ int main() {
     nlPrint("checkSimple(18)=false");
     nlPrint(checkSimple(18));
     nlPrint("diffHelm()");
-    nlPrint(diffHelm(1));
-    lli iRandA = random(1, (lli) pow(10, 2));
-    lli iRandX = random(1, (lli) pow(10, 2));
-    lli iRandP = random(1, (lli) pow(10, 2));
+    nlPrint(diffHelm(__null));
+    lli iRandA = random(1, (lli) pow(10, 3));
+    lli iRandX = random(1, (lli) pow(10, 3));
+    lli iRandP = random(1, (lli) pow(10, 3));
     nlPrint("BD STEP");
-    cout << iRandA << " " << iRandX << " " << iRandP << endl;
-    nlPrint(modPow(iRandA, iRandX, iRandP));
-    nlPrint(BCStep(iRandA, iRandP, modPow(iRandA, iRandX, iRandP)));
+
+    cout  << " a= " << iRandA  << " p= " << iRandP << "   modPow=" << modPow(iRandA, iRandX, iRandP)<<endl;
+    nlPrint(BCStep(7, 14947, 777));
     return 0;
 }

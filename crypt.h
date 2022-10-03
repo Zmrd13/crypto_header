@@ -173,30 +173,30 @@ lli diffHelm(int iSeed = NULL) {
 lli random(lli min, lli max) {
     return rand() % (max - min) + min;
 }
-
+/**
+ * Baby-step giant-step y=a^x mod p
+ * @param iA- a/b in formula
+ * @param iP- p/m in formula
+ * @param iY- y/g in formula (for reliability use modPow(iA,_,iP))
+ *
+ * */
 lli BCStep(lli iA, lli iP, lli iY) {
     lli iM = sqrt(iP) + 1, iK = iM;
     vector<lli> vecCalc = {};
     vector<lli> vecAns;
-
     lli iNumber = 0;
-    lli iIndex = 0;
-
     for (lli i = 0; i <= iM - 1; i++) {
         vecCalc.push_back((modPow(iA, i, iP) * (iY % iP)) % iP);
     }
-    cout << endl;
-
     for (lli i = 1; i <= iK; i++) {
         iNumber = modPow(iA, i * iM, iP);
         for (lli j = 0; j < vecCalc.size(); j++) {
             if (iNumber == vecCalc[j]) {
-                iIndex++;
+
                 vecAns.push_back(i * iM - j);
             }
         }
     }
-    cout << endl << "vecAns:" << endl;
 
 
 //    for (int i = 0; i < vecAns.size(); i++) {
@@ -205,6 +205,7 @@ lli BCStep(lli iA, lli iP, lli iY) {
 //        }
 //        cout << vecAns[i] << " ";
 //    }
+    nlPrint("Intersections");
     nlPrint(vecAns);
     cout << endl;
 
